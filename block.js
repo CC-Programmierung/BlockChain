@@ -30,11 +30,12 @@ class Block{
     static mineBlock(lastBlock,data){
         const timestamp = Date.now(); //Zeit in ms seit 01.01.1970
         const lastHash = lastBlock.hash;
-        const hash = "toDo Hash";
+        const hash = Block.hash(timestamp,lastHash,data);
 
-        return new this(timestamp,lastHash,hash,data);
+        return new this(timestamp,lastHash,hash,data); //call constructer
 }
 
+    // Erzeugen des Hash
     static hash(timestamp,lastHash,data){
         return SHA256(`${timestamp}${lastHash}${data}`).toString();
 
