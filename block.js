@@ -20,6 +20,21 @@ class Block{
         `;
     }
 
+    static genesis(){
+    return new this("Genesis time","-----","abcd#123",[]);
+    }
+
+    // weiterer Block in der Chain
+    static mineBlock(lastBlock,data){
+        const timestamp = Date.now(); //Zeit in ms seit 01.01.1970
+        const lastHash = lastBlock.hash;
+        const hash = "toDo Hash";
+
+        return new this(timestamp,lastHash,hash,data);
+
+
+}
+
 
 }
 
