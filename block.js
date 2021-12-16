@@ -1,3 +1,5 @@
+const SHA256 = require("crypto-js/sha256"); //SHA256 verschlüsselung
+
 class Block{
 
     // Constructer and Parameter
@@ -31,9 +33,14 @@ class Block{
         const hash = "toDo Hash";
 
         return new this(timestamp,lastHash,hash,data);
-
-
 }
+
+    static hash(timestamp,lastHash,data){
+        return SHA256(`${timestamp}${lastHash}${data}`).toString();
+
+
+
+    }
 
 
 }
